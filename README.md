@@ -32,6 +32,12 @@ tools/preview.sh 4747        # on the server (fails if the port is taken)
 ssh -L 4747:localhost:4747 <that login node>   # on your machine, then open http://localhost:4747
 ```
 
+Or serve a clone on your own machine (pulls first, opens the browser):
+
+```bash
+git clone <this repo> && cd <it> && tools/serve_local.sh
+```
+
 ## How jobs are tracked
 
 Each job runs inside `tools/run_job.sh`, which appends started / finished / failed /
