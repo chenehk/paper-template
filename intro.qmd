@@ -1,3 +1,4 @@
-# Introduction {#sec-intro}
+# Motivation {#sec-intro}
 
 The problem, why it matters, what is wrong with current approaches, and the idea.
+Further Introduction pages go under the "Introduction" part in `_quarto.yml`.

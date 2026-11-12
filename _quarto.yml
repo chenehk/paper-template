@@ -7,17 +7,33 @@ book:
   author: "Author"
   chapters:
     - index.qmd
-    - part: "Details"
+    # Part titles are linked to the Paper page's sections by web/part-links.html;
+    # keep the two in sync when renaming a part. Add each new page under its part.
+    - part: "Introduction"
       chapters:
         - intro.qmd
-        - related/index.qmd
-        - method/index.qmd
+    - part: "Related work"
+      chapters:
+        - related/topic.qmd
+    - part: "Method"
+      chapters:
+        - method/component.qmd
+    - part: "Experiments"
+      chapters:
         - experiments/index.qmd
         # <experiments> (maintained by tools/sync_chapters.py; do not edit by hand)
         # </experiments>
+    - references.qmd
+    - part: "Obsolete experiments"
+      chapters:
+        # <obsolete> (maintained by tools/sync_chapters.py; do not edit by hand)
+        - experiments/obsolete-none.qmd
+        # </obsolete>
   page-navigation: true
 
 bibliography: refs.bib
+link-citations: true
+link-bibliography: true
 number-sections: true
 crossref:
   chapters: true
@@ -28,6 +44,7 @@ format:
     toc: true
     toc-depth: 3
     code-copy: true
+    include-after-body: web/part-links.html
   latex:
     documentclass: article
     keep-tex: true

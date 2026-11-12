@@ -1,0 +1,8 @@
+# References {.unnumbered}
+
+Every `[@key]` citation on the other pages links here; each entry links to the paper
+(the published PDF, or the arXiv page for unpublished work). Entries come from
+`refs.bib`, maintained by the `references` agent under the rules in `CLAUDE.md`.
+
+::: {#refs}
+:::

@@ -1,3 +1,0 @@
-# Method {#sec-method}
-
-Overview of the method; one page per component.

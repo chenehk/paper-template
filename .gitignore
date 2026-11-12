@@ -5,7 +5,7 @@ _freeze/
 status.qmd
 *_files/
 *.tex
-!templates/**/*.tex
+!_templates/**/*.tex
 
 /.quarto/
 **/*.quarto_ipynb

@@ -4,7 +4,7 @@
 set -e
 tmpl=${TEMPLATE:-/work/hdd/bbjs/sjin2/papers/paper-template}
 cd "$(dirname "$0")/.."
-paths=".claude/agents .claude/commands tools templates"
+paths=".claude/agents .claude/commands tools _templates"
 for p in $paths; do diff -ru "$p" "$tmpl/$p" || true; done
 if [ "${1:-}" = "--apply" ]; then
     for p in $paths; do mkdir -p "$p"; cp -r "$tmpl/$p/." "$p/"; done

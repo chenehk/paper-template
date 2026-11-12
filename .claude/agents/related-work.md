@@ -8,9 +8,10 @@ You maintain the related-work part of a paper written as a Quarto book. Read
 For the topic in your brief:
 1. Search, then open each paper you cite (abstract page or PDF). A search snippet is
    not a source. Record the arXiv id or DOI.
-2. Add a BibTeX entry to `refs.bib` only for papers you opened; key format
-   `firstauthorYEARword` (e.g. `graves2006ctc`). Do not duplicate existing keys.
-3. Write `related/<topic>.qmd` from `templates/related-entry.qmd`: two or three
+2. For every paper you cite, have the `references` agent add or confirm its entry in
+   `refs.bib` (published venue first, arXiv only if unpublished), then cite it as
+   `[@key]`. Do not write BibTeX yourself.
+3. Write `related/<topic>.qmd` from `_templates/related-entry.qmd`: two or three
    sentences on how this line of work relates to ours, then a table (work, what it
    is, relation to ours) citing `[@key]`. Link to our method pages by `@sec-...`.
 4. Anything you could not verify is labelled "not checked" and gets no BibTeX entry.

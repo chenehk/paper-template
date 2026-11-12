@@ -1,4 +1,0 @@
-# Related work {#sec-related}
-
-Overview of the topics below; one page per topic lives next to this file and is
-listed in `_quarto.yml`.

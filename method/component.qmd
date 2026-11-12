@@ -1,0 +1,4 @@
+# Method component {#sec-method}
+
+One page per component of the method, each listed under the "Method" part in
+`_quarto.yml`. Link each component to the experiments that test it (`@sec-exp-...`).

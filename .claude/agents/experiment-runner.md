@@ -24,7 +24,7 @@ How to work:
    with a timeout to confirm the jobs reached a working state.
 3. When jobs finish, collect numbers into `results.json` (tables + metrics + `sources`,
    the file each number came from). Run `tools/make_tables.py experiments/<id>`.
-   Save figures as both PNG and PDF in `figs/`.
+   Save figures as both PNG and PDF in `figs/`. Run `tools/refresh.sh` so the site shows them.
 4. Fill `index.qmd` from the template: setup, results (include generated tables), one
    sentence per finding with its number, caveats. Record the code branch and the
    commit the results came from.

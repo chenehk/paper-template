@@ -1,0 +1,5 @@
+# Related topic {#sec-related}
+
+One page per topic of related work, each listed under the "Related work" part in
+`_quarto.yml`. Start from `_templates/related-entry.qmd`: how this line of work relates
+to ours in two or three sentences, then a table of works with `[@key]` citations.

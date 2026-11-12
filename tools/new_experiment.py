@@ -25,7 +25,7 @@ os.makedirs(os.path.join(d, "tables")); os.makedirs(os.path.join(d, "figs"))
 sub = {"{{ID}}": a.id, "{{TITLE}}": a.title, "{{QUESTION}}": a.question, "{{CODE_REPO}}": a.repo,
        "{{BRANCH}}": a.branch, "{{COMMIT}}": commit or "unknown"}
 for src, dst in (("experiment.qmd", "index.qmd"), ("results.json", "results.json")):
-    text = open(os.path.join(ROOT, "templates", src)).read()
+    text = open(os.path.join(ROOT, "_templates", src)).read()
     for k, v in sub.items():
         text = text.replace(k, v)
     open(os.path.join(d, dst), "w").write(text)

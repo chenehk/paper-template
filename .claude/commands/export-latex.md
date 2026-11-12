@@ -4,7 +4,7 @@ description: Export the paper to LaTeX for Overleaf, using a template the author
 Export the paper to LaTeX. $ARGUMENTS
 
 1. Ask for the LaTeX template (.cls/.sty/example .tex) if it is not given; put it in
-   `templates/latex/<name>/`.
+   `_templates/latex/<name>/`.
 2. Run the paper-reviewer first; stop if there are unresolved references or numbers
    that do not match their source.
 3. Wrap the template as a Quarto LaTeX format (template partials or a format

@@ -12,5 +12,5 @@ Fold experiment $ARGUMENTS into the paper.
    the relevant `method/*.qmd` page and link it to the experiment. If it touches prior
    work, ask the related-work agent for the comparison.
 5. `git diff` every file before editing it; keep the author's wording.
-6. Run `tools/sync_chapters.py`, add a line to `log.md`, stage (never commit), and list
+6. Run `tools/refresh.sh`, add a line to `log.md`, stage (never commit), and list
    what changed.

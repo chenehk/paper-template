@@ -8,19 +8,52 @@ working here reads this file first.
 
 | Path | What | Owner |
 |---|---|---|
-| `index.qmd` | the paper: Abstract, 1 Introduction, 2 Related work, 3 Method, 4 Experiments, 5 Conclusion. Each section is a short summary that links to its detail pages. | orchestrator |
-| `intro.qmd` | problem statement and motivation in full | orchestrator |
+| `index.qmd` | the paper: Abstract, Introduction, Related work, Method, Experiments, Conclusion. Each section is a short summary that links to its detail pages. | orchestrator |
+| `intro.qmd` (+ more pages) | problem statement and motivation in full | orchestrator |
 | `related/*.qmd` | related work, one page per topic | related-work agent |
 | `method/*.qmd` | method, one page per component | orchestrator |
 | `experiments/<id>/index.qmd` | one page per experiment | that experiment's runner |
+| `web/part-links.html` | makes each sidebar part title open its section of the Paper page | orchestrator |
 | `experiments/<id>/results.json` | every number the experiment reports | that experiment's runner |
 | `experiments/<id>/tables/*.md`, `figs/` | generated from `results.json`; never hand-edited | `tools/make_tables.py` |
 | `experiments/registry.yaml` | experiments, their jobs, code branch and commit | orchestrator + scheduler |
 | `experiments/<id>/events.jsonl` | job events written by `tools/run_job.sh` | jobs themselves |
-| `refs.bib` | citations; only papers an agent actually opened | related-work agent |
+| `refs.bib` | citations; only papers an agent actually opened (rules below) | references agent |
+| `references.qmd` | the References page every citation links to; generated from `refs.bib` | (generated) |
 | `claims.yaml` | each claim in `index.qmd` -> experiment id and result key | orchestrator |
 | `log.md` | dated decisions | orchestrator |
 | `status.qmd`, `.scheduler/` | generated status board and scheduler state (git-ignored) | scheduler |
+
+## Site structure
+
+The sidebar has two levels: **Paper** (`index.qmd`), then the parts **Introduction**,
+**Related work**, **Method**, **Experiments** and **Obsolete experiments**, each listing
+its pages. Clicking a
+part title opens the matching section of the Paper page (`#sec-paper-intro`,
+`#sec-paper-related`, `#sec-paper-method`, `#sec-paper-experiments`), via
+`web/part-links.html`. A new page must be added under its part in `_quarto.yml`
+(experiment pages are added by `tools/sync_chapters.py`). When an experiment fails or
+is superseded, set its registry status to `obsolete` and add a "Why it failed" section
+and a lesson to its page; `sync_chapters.py` then moves it from Experiments to Obsolete
+experiments. Its folder (results, raw files) stays.
+
+## Citations
+
+Cite with `[@key]` anywhere; the citation links to its entry on the References page,
+and the entry links to the paper. Every entry in `refs.bib` must satisfy:
+
+- **Opened, not remembered:** the agent that adds it opened the paper's page.
+- **Published version first:** if the paper appeared at a conference or in a journal,
+  the entry is `@inproceedings` (with `booktitle`, e.g. "Proc. Interspeech 2021") or
+  `@article` (with `journal`, `volume`, `number`), `year`, `pages` when known, and
+  `url` = the PDF on the venue's site (ACL Anthology, ISCA Archive, PMLR, OpenReview,
+  IEEE Xplore, ...). No `doi` field: the citation style would show the DOI instead of
+  the PDF link.
+- **arXiv only if unpublished:** `@misc` with `eprint`, `archivePrefix = {arXiv}`,
+  `primaryClass`, and `url` = `https://arxiv.org/abs/<id>`. Re-check for a published
+  version before every export.
+- **Keys:** `firstauthorYEARword`, lower case (e.g. `graves2006ctc`); never reuse a key
+  for a different paper.
 
 ## Rules for everyone
 
@@ -49,13 +82,22 @@ working here reads this file first.
 - **experiment-runner**: implements and runs one experiment, writes its page.
 - **scheduler**: submits and tracks jobs from `registry.yaml`, writes `status.qmd` and
   `.scheduler/inbox.md`.
-- **related-work**: finds and reads papers, writes `related/` and `refs.bib`.
+- **related-work**: finds and reads papers, writes `related/` pages and cites with `[@key]`.
+- **references**: adds and verifies `refs.bib` entries under the citation rules.
 - **paper-reviewer**: checks claims, numbers, links and the LaTeX build; reports only.
 
 ## Commands (see `.claude/commands/`)
 
-`/new-experiment`, `/schedule`, `/fold-results`, `/add-related`, `/check-paper`,
-`/export-latex`.
+`/new-experiment`, `/schedule`, `/fold-results`, `/add-related`, `/check-refs`,
+`/check-paper`, `/export-latex`.
+
+## Keeping the site current
+
+`tools/preview.sh` re-renders a page whose `.qmd` changed when it is next opened.
+It does not see changes to included tables, `results.json`, the chapter list or
+`_quarto.yml`: whoever makes such a change runs `tools/refresh.sh` (tables, chapters,
+full render) as the last step of their task. Run only one preview per project; two
+previews on one project interfere.
 
 ## Viewing
 

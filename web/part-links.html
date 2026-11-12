@@ -1,0 +1,24 @@
+<script>
+// Sidebar section titles (Introduction, Related work, ...) open the matching section
+// of the Paper page; the chevron next to each still expands / collapses the section.
+// Keys are the part titles in _quarto.yml, values the section ids in index.qmd.
+(function () {
+  const links = {
+    "Introduction": "sec-paper-intro",
+    "Related work": "sec-paper-related",
+    "Method": "sec-paper-method",
+    "Experiments": "sec-paper-experiments",
+    "Obsolete experiments": "sec-paper-experiments",
+  };
+  const meta = document.querySelector('meta[name="quarto:offset"]');
+  const root = meta ? meta.content : "./";
+  document.querySelectorAll(".sidebar-item-section > .sidebar-item-container > a.sidebar-item-text").forEach((a) => {
+    const id = links[a.textContent.trim()];
+    if (!id) return;
+    a.removeAttribute("data-bs-toggle");
+    a.removeAttribute("data-bs-target");
+    a.removeAttribute("role");
+    a.setAttribute("href", root + "index.html#" + id);
+  });
+})();
+</script>

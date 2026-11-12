@@ -28,8 +28,8 @@ and the Introduction summary in `index.qmd`, and use
 ## View
 
 ```bash
-tools/preview.sh 4200        # on the server
-ssh -L 4200:localhost:4200 <login node>   # on your machine, then open http://localhost:4200
+tools/preview.sh 4747        # on the server (fails if the port is taken)
+ssh -L 4747:localhost:4747 <that login node>   # on your machine, then open http://localhost:4747
 ```
 
 ## How jobs are tracked

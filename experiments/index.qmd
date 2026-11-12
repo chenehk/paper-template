@@ -1,6 +1,6 @@
-# Experiments {#sec-experiments}
+# Overview of experiments {#sec-experiments}
 
-Overview of all experiments. The table below is generated from `registry.yaml`
-by `tools/sync_chapters.py`.
+All experiments, generated from `registry.yaml` by `tools/sync_chapters.py`.
+Experiments that did not work are listed under the "Obsolete experiments" part.
 
 {{< include _overview.md >}}
