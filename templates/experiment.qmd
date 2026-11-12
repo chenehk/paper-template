@@ -1,0 +1,27 @@
+# {{TITLE}} {#sec-{{ID}}}
+
+| | |
+|---|---|
+| Question | {{QUESTION}} |
+| Status | planned |
+| Code | `{{CODE_REPO}}`, branch `{{BRANCH}}`, commit `{{COMMIT}}` |
+| Supports | (claim ids from `claims.yaml`) |
+
+## Setup {#sec-{{ID}}-setup}
+
+Configs, data, baseline, metrics, and what differs from the baseline. Link configs
+by path in the code repository.
+
+## Results {#sec-{{ID}}-results}
+
+Tables come from `results.json` via `tools/make_tables.py`:
+
+{{< include tables/main.md >}}
+
+## Findings {#sec-{{ID}}-findings}
+
+- Each finding is one sentence with its number, then the evidence.
+
+## Caveats and open questions {#sec-{{ID}}-caveats}
+
+- Seeds, data size, what was not checked.

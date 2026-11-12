@@ -1,0 +1,3 @@
+# One entry per experiment. Edited by the orchestrator (what to run) and the
+# scheduler (job state). Schema: see templates/registry-entry.yaml.
+experiments: []

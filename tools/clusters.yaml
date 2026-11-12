@@ -1,0 +1,17 @@
+# Cluster profiles used by the scheduler. Edit per project.
+# `submit_host`: run sbatch/squeue/sacct there over ssh (null = locally).
+# `limits`: max queued+running jobs per user per partition (from sacctmgr qos).
+# `arch`: which builds to use there.
+deltaai:
+  submit_host: dtai-login.delta.ncsa.illinois.edu
+  account: bbjs-dtai-gh
+  arch: aarch64
+  limits: {ghx4-interactive: 1}
+  default_partition: ghx4-interactive
+delta:
+  submit_host: null
+  account_gpu: bbjs-delta-gpu
+  account_cpu: bbjs-delta-cpu
+  arch: x86_64
+  limits: {}
+  default_partition: cpu

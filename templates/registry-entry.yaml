@@ -1,0 +1,26 @@
+# Copy into experiments/registry.yaml under `experiments:` (tools/new_experiment.py does this).
+- id: exp-NNN-short-name          # also the folder name and the section id (sec-exp-NNN-short-name)
+  title: Short title
+  question: One sentence.
+  status: planned                 # planned | running | done | failed | abandoned
+  code: {repo: /path/to/code, branch: branch-name, commit: null}
+  claims: []                      # claim ids this experiment supports
+  jobs:
+    - name: train-a               # unique within the experiment
+      cluster: deltaai            # key in tools/clusters.yaml
+      partition: ghx4-interactive
+      group: null                 # jobs with the same group share one allocation, one GPU each
+      gpus: 1
+      cpus: 16
+      mem: 120G
+      time: "02:00:00"
+      workdir: /path/to/code/egs2/recipe
+      command: ./run.sh --stage 11 --stop_stage 11 ...
+      log: /path/to/log           # file the command writes; scanned for the markers below
+      working_marker: "1epoch results"   # regex: the job reached a working state
+      depends_on: []              # names of jobs (same experiment) that must finish first
+      max_retries: 1              # automatic resubmits for OOM / timeout / node failure
+      # filled by the scheduler:
+      state: queued               # queued | submitted | running | working | done | failed
+      slurm_id: null
+      retries: 0

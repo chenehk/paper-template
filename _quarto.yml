@@ -1,0 +1,33 @@
+project:
+  type: book
+  output-dir: _site
+
+book:
+  title: "Paper title"
+  author: "Author"
+  chapters:
+    - index.qmd
+    - part: "Details"
+      chapters:
+        - intro.qmd
+        - related/index.qmd
+        - method/index.qmd
+        - experiments/index.qmd
+        # <experiments> (maintained by tools/sync_chapters.py; do not edit by hand)
+        # </experiments>
+  page-navigation: true
+
+bibliography: refs.bib
+number-sections: true
+crossref:
+  chapters: true
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    code-copy: true
+  latex:
+    documentclass: article
+    keep-tex: true

@@ -1,0 +1,12 @@
+{
+  "tables": {
+    "main": {
+      "caption": "Main result",
+      "label": "tbl-{{ID}}-main",
+      "columns": ["Model", "Metric"],
+      "rows": [["baseline", null]]
+    }
+  },
+  "metrics": {},
+  "sources": {}
+}

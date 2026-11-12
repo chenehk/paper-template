@@ -1,0 +1,7 @@
+## {{TOPIC}} {#sec-related-{{SLUG}}}
+
+How this line of work relates to ours, in two or three sentences.
+
+| Work | What it is | Relation to ours |
+|---|---|---|
+| Name [@key] | one line | one line |

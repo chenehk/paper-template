@@ -1,0 +1,13 @@
+_site/
+_freeze/
+.quarto/
+.scheduler/
+status.qmd
+*_files/
+*.tex
+!templates/**/*.tex
+
+/.quarto/
+**/*.quarto_ipynb
+__pycache__/
+*.pyc

@@ -1,0 +1,26 @@
+# Paper {.unnumbered}
+
+## Abstract {.unnumbered}
+
+One paragraph: problem, idea, main result with its number, open problem.
+
+## Introduction {#sec-paper-intro}
+
+Summary of the problem and the contribution. Details: @sec-intro.
+
+## Related work {#sec-paper-related}
+
+Summary of how this work sits among prior work. Details: @sec-related.
+
+## Method {#sec-paper-method}
+
+Summary of the method. Details: @sec-method.
+
+## Experiments {#sec-paper-experiments}
+
+Summary of the main results, with the main table included from an experiment's
+`tables/`. Details: @sec-experiments.
+
+## Conclusion {#sec-paper-conclusion}
+
+What holds, what does not yet, what comes next.

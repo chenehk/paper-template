@@ -1,0 +1,6 @@
+# Experiments {#sec-experiments}
+
+Overview of all experiments. The table below is generated from `registry.yaml`
+by `tools/sync_chapters.py`.
+
+{{< include _overview.md >}}
