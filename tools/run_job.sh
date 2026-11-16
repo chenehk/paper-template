@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Run one experiment job and record its life in an events file, so the job
+# Run one exploration job and record its life in an events file, so the job
 # reports for itself even when nobody is watching.
 # Usage: run_job.sh EVENTS_FILE JOB_NAME -- command ...
 set -u

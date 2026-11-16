@@ -11,3 +11,5 @@ status.qmd
 **/*.quarto_ipynb
 __pycache__/
 *.pyc
+.render.lock
+.render.log

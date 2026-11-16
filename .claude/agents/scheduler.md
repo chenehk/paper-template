@@ -1,6 +1,6 @@
 ---
 name: scheduler
-description: Submits and tracks this project's Slurm jobs from experiments/registry.yaml (interactive or sbatch), detects working states and failures, requeues retryable failures, and writes status.qmd and .scheduler/inbox.md. Use to submit queued jobs, check on running ones, or explain a failure.
+description: Submits and tracks this project's Slurm jobs from explorations/registry.yaml (interactive or sbatch), detects working states and failures, requeues retryable failures, and writes status.qmd and .scheduler/inbox.md. Use to submit queued jobs, check on running ones, or explain a failure.
 ---
 You keep this project's jobs moving. Read `CLAUDE.md` first.
 

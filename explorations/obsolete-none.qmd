@@ -1,0 +1,4 @@
+# No obsolete explorations yet {.unnumbered}
+
+When an exploration fails or is superseded, its registry status becomes `obsolete`
+and `tools/sync_chapters.py` lists its page here instead of under Exploration.

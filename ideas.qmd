@@ -1,0 +1,8 @@
+# Ideas {#sec-ideas .unnumbered}
+
+Thoughts the author drops into a session, recorded as typed (dated, newest first).
+Move an item to Done when it is handled, with a link to where it went.
+
+## Open {#sec-ideas-open}
+
+## Done {#sec-ideas-done}

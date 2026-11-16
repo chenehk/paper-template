@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Generate experiments/<id>/tables/<name>.md from experiments/<id>/results.json.
+"""Generate explorations/<id>/tables/<name>.md from explorations/<id>/results.json.
 
 results.json: {"tables": {name: {"caption", "label", "columns": [...], "rows": [[...]],
 "format": optional per-column Python format strings}}, "metrics": {...}, "sources": {...}}.
 Tables are written as Quarto pipe tables with a caption and a {#tbl-...} label, so
 @tbl-... references work on the site and in LaTeX. Run with no arguments to
-regenerate every experiment.
+regenerate every exploration.
 """
 import glob, json, os, sys
 
@@ -43,6 +43,6 @@ def build(exp_dir):
 
 
 if __name__ == "__main__":
-    dirs = sys.argv[1:] or sorted(glob.glob(os.path.join(ROOT, "experiments", "exp-*")))
+    dirs = sys.argv[1:] or sorted(glob.glob(os.path.join(ROOT, "explorations", "exp-*")))
     for d in dirs:
         print(f"{os.path.basename(d)}: {build(d)} table(s)")

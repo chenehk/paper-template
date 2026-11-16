@@ -1,0 +1,9 @@
+# Overview of explorations {#sec-explorations}
+
+Everything we tried, one page each: the question, the setup, every number with its
+source, and what we learned. Any page of the paper may cite an exploration
+(`@sec-exp-...`); the paper's Experiments part (@sec-experiments) presents the subset
+that supports its claims. The table below is generated from `registry.yaml` by
+`tools/sync_chapters.py`.
+
+{{< include _overview.md >}}

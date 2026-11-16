@@ -18,8 +18,9 @@ Summary of the method. Details: @sec-method.
 
 ## Experiments {#sec-paper-experiments}
 
-Summary of the main results, with the main table included from an experiment's
-`tables/`. Details: @sec-experiments; approaches that failed are under Obsolete experiments.
+Summary of the main results, with the main table included from an exploration's
+`tables/`. Details: @sec-experiments; everything tried: @sec-explorations; approaches that
+failed are under Obsolete explorations.
 
 ## Conclusion {#sec-paper-conclusion}
 

@@ -1,12 +1,12 @@
-# Copy into experiments/registry.yaml under `experiments:` (tools/new_experiment.py does this).
+# Copy into explorations/registry.yaml under `explorations:` (tools/new_exploration.py does this).
 - id: exp-NNN-short-name          # also the folder name and the section id (sec-exp-NNN-short-name)
   title: Short title
   question: One sentence.
-  status: planned                 # planned | running | done | failed | abandoned
+  status: planned                 # planned | running | done | failed | obsolete
   code: {repo: /path/to/code, branch: branch-name, commit: null}
-  claims: []                      # claim ids this experiment supports
+  claims: []                      # claim ids this exploration supports
   jobs:
-    - name: train-a               # unique within the experiment
+    - name: train-a               # unique within the exploration
       cluster: deltaai            # key in tools/clusters.yaml
       partition: ghx4-interactive
       group: null                 # jobs with the same group share one allocation, one GPU each
@@ -18,7 +18,7 @@
       command: ./run.sh --stage 11 --stop_stage 11 ...
       log: /path/to/log           # file the command writes; scanned for the markers below
       working_marker: "1epoch results"   # regex: the job reached a working state
-      depends_on: []              # names of jobs (same experiment) that must finish first
+      depends_on: []              # names of jobs (same exploration) that must finish first
       max_retries: 1              # automatic resubmits for OOM / timeout / node failure
       # filled by the scheduler:
       state: queued               # queued | submitted | running | working | done | failed

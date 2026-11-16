@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Scaffold an experiment: folder, page from the template, results.json, registry entry.
+"""Scaffold an exploration: folder, page from the template, results.json, registry entry.
 
-  new_experiment.py exp-004-span-sil "Span <sil>" "Does a span <sil> fix pause-followed offsets?" \
+  new_exploration.py exp-004-span-sil "Span <sil>" "Does a span <sil> fix pause-followed offsets?" \
       --repo /path/to/code --branch my-branch
 """
 import argparse, os, subprocess, sys
@@ -14,7 +14,7 @@ ap.add_argument("--repo", required=True); ap.add_argument("--branch", required=T
 a = ap.parse_args()
 if not a.id.startswith("exp-"):
     sys.exit("id must start with exp-")
-d = os.path.join(ROOT, "experiments", a.id)
+d = os.path.join(ROOT, "explorations", a.id)
 if os.path.exists(d):
     sys.exit(f"{d} exists")
 try:
@@ -24,14 +24,14 @@ except Exception:
 os.makedirs(os.path.join(d, "tables")); os.makedirs(os.path.join(d, "figs"))
 sub = {"{{ID}}": a.id, "{{TITLE}}": a.title, "{{QUESTION}}": a.question, "{{CODE_REPO}}": a.repo,
        "{{BRANCH}}": a.branch, "{{COMMIT}}": commit or "unknown"}
-for src, dst in (("experiment.qmd", "index.qmd"), ("results.json", "results.json")):
+for src, dst in (("exploration.qmd", "index.qmd"), ("results.json", "results.json")):
     text = open(os.path.join(ROOT, "_templates", src)).read()
     for k, v in sub.items():
         text = text.replace(k, v)
     open(os.path.join(d, dst), "w").write(text)
-reg_path = os.path.join(ROOT, "experiments", "registry.yaml")
+reg_path = os.path.join(ROOT, "explorations", "registry.yaml")
 reg = yaml.safe_load(open(reg_path)) or {}
-reg.setdefault("experiments", []).append(dict(id=a.id, title=a.title, question=a.question, status="planned",
+reg.setdefault("explorations", []).append(dict(id=a.id, title=a.title, question=a.question, status="planned",
                                               code=dict(repo=a.repo, branch=a.branch, commit=commit), claims=[], jobs=[]))
 with open(reg_path, "w") as f:
     f.write("# Maintained by the orchestrator (what to run) and tools/scheduler.py (job state).\n")

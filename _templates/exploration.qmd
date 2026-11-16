@@ -12,15 +12,15 @@
 Configs, data, baseline, metrics, and what differs from the baseline. Link configs
 by path in the code repository.
 
+## Findings {#sec-{{ID}}-findings}
+
+- Each finding is one sentence with its number, then the evidence.
+
 ## Results {#sec-{{ID}}-results}
 
 Tables come from `results.json` via `tools/make_tables.py`:
 
 {{< include tables/main.md >}}
-
-## Findings {#sec-{{ID}}-findings}
-
-- Each finding is one sentence with its number, then the evidence.
 
 ## Caveats and open questions {#sec-{{ID}}-caveats}
 

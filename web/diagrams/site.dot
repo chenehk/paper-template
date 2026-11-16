@@ -1,0 +1,11 @@
+digraph site {
+  graph [rankdir=LR, fontname="Helvetica", nodesep=0.35, ranksep=0.5, bgcolor="transparent", pad=0.1];
+  node  [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=12, color="#868e96", fillcolor="#ffffff", fontcolor="#212529", margin="0.15,0.07"];
+  edge  [fontname="Helvetica", fontsize=10, color="#495057", fontcolor="#495057", arrowsize=0.7];
+  edit   [label="any Edit / Write"];
+  hook   [label="hook_render.sh"];
+  render [label="quarto render"];
+  srv    [label="static server :4747"];
+  you    [label="You, via ssh -L", fillcolor="#fff3bf", color="#e0a800"];
+  edit -> hook -> render -> srv -> you;
+}

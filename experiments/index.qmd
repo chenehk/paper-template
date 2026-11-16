@@ -1,6 +1,13 @@
-# Overview of experiments {#sec-experiments}
+# Experiments {#sec-experiments}
 
-All experiments, generated from `registry.yaml` by `tools/sync_chapters.py`.
-Experiments that did not work are listed under the "Obsolete experiments" part.
+The experiments the paper reports, each tied to a claim in `claims.yaml`. Numbers live
+on exploration pages; this part sets them up and points to them.
 
-{{< include _overview.md >}}
+## Setup {#sec-experiments-setup}
+
+Data, models, training budget, metrics and baseline shared by the experiments below.
+
+## Main results {#sec-experiments-main}
+
+One section per claim: the claim in a sentence, then cross-references to the
+exploration tables and figures that support it (`@tbl-...`, `@fig-...`, `@sec-exp-...`).

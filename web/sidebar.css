@@ -1,0 +1,28 @@
+/* Sidebar colours: part titles (and the top-level Paper / References entries) vs.
+   the pages inside a part. Change the colours here. */
+:root {
+  --sidebar-part: #1d3557;
+  --sidebar-page: #5f6b76;
+  --sidebar-active: #2780e3;
+  --sidebar-rule: #ced4da;
+}
+.sidebar-navigation .sidebar-menu-container > ul > li > .sidebar-item-container .menu-text {
+  color: var(--sidebar-part);
+  font-weight: 600;
+}
+.sidebar-navigation .sidebar-section .sidebar-item-container .menu-text {
+  color: var(--sidebar-page);
+  font-weight: 400;
+}
+.sidebar-navigation .sidebar-link.active .menu-text,
+.sidebar-navigation .sidebar-section .sidebar-link.active .menu-text {
+  color: var(--sidebar-active);
+  font-weight: 600;
+}
+/* Rule between the paper (up to References) and the lab notebook (Exploration);
+   web/part-links.html adds the class. */
+.sidebar-navigation li.sidebar-divider-before {
+  border-top: 1px solid var(--sidebar-rule);
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+}

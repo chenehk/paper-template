@@ -1,4 +1,0 @@
-# No obsolete experiments yet {.unnumbered}
-
-When an experiment fails or is superseded, its registry status becomes `obsolete`
-and `tools/sync_chapters.py` lists its page here instead of under Experiments.

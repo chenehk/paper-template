@@ -1,15 +1,18 @@
 <script>
 // Sidebar section titles (Introduction, Related work, ...) open the matching section
 // of the Paper page; the chevron next to each still expands / collapses the section.
-// Keys are the part titles in _quarto.yml, values the section ids in index.qmd.
+// Keys are the part titles in _quarto.yml; values are section ids in index.qmd, or a page path.
 (function () {
   const links = {
     "Introduction": "sec-paper-intro",
     "Related work": "sec-paper-related",
     "Method": "sec-paper-method",
     "Experiments": "sec-paper-experiments",
-    "Obsolete experiments": "sec-paper-experiments",
+    "Explorations": "explorations/index.html",
+    "Obsolete explorations": "explorations/index.html",
   };
+  // A rule above each of these sidebar entries groups paper / notebook / project help (web/sidebar.css).
+  const dividerBefore = ["Ideas", "How this project works"];
   const meta = document.querySelector('meta[name="quarto:offset"]');
   const root = meta ? meta.content : "./";
   document.querySelectorAll(".sidebar-item-section > .sidebar-item-container > a.sidebar-item-text").forEach((a) => {
@@ -18,7 +21,10 @@
     a.removeAttribute("data-bs-toggle");
     a.removeAttribute("data-bs-target");
     a.removeAttribute("role");
-    a.setAttribute("href", root + "index.html#" + id);
+    a.setAttribute("href", root + (id.endsWith(".html") ? id : "index.html#" + id));
+  });
+  document.querySelectorAll(".sidebar-navigation a.sidebar-item-text").forEach((a) => {
+    if (dividerBefore.includes(a.textContent.trim())) a.closest("li").classList.add("sidebar-divider-before");
   });
 })();
 </script>
