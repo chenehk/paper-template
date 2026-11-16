@@ -36,6 +36,15 @@ page (`#sec-paper-intro`, `#sec-paper-related`, `#sec-paper-method`,
 `#sec-paper-experiments`); the two exploration titles open the overview
 (`explorations/index.qmd`). All of this is in `web/part-links.html`.
 
+**Sections in Explorations.** Explorations are grouped by topic: the registry's top-level
+`sections` list (`{id, title}`, in display order) names the sections, and each exploration
+has `section: <id>`. Quarto books cannot nest parts, so `tools/sync_chapters.py` keeps the
+chapter list flat (ordered by section), groups the overview table, and writes
+`web/exploration-sections.html`, which `web/part-links.html` uses to fold the sidebar into
+collapsible sections. Sections are display only: chapter numbers and previous/next links
+run through the flat list. Give a new exploration a section (`new_exploration.py
+--section <id>`); add a section to the list first if none fits.
+
 **Explorations vs. Experiments.** An exploration (`explorations/exp-NNN-*`) is anything
 we tried: one question, its runs, every number, what we learned. Any page may cite one
 (`@sec-exp-...`), including the introduction and related work. The Experiments part

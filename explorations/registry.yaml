@@ -1,3 +1,5 @@
 # One entry per exploration. Edited by the orchestrator (what to run) and the
 # scheduler (job state). Schema: see _templates/registry-entry.yaml.
+# Sections group the Explorations sidebar part, in this order: - {id: short-id, title: Shown title}
+sections: []
 explorations: []

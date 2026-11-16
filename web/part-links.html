@@ -26,5 +26,38 @@
   document.querySelectorAll(".sidebar-navigation a.sidebar-item-text").forEach((a) => {
     if (dividerBefore.includes(a.textContent.trim())) a.closest("li").classList.add("sidebar-divider-before");
   });
+
+  // Fold the Explorations part into collapsible sections (Quarto books cannot nest parts).
+  // The page -> section map comes from web/exploration-sections.html (tools/sync_chapters.py).
+  const sec = window.EXPLORATION_SECTIONS;
+  const title = [...document.querySelectorAll(".sidebar-item-section > .sidebar-item-container > a.sidebar-item-text")]
+    .find((a) => a.textContent.trim() === "Explorations");
+  const list = title && title.closest("li").querySelector(":scope > ul");
+  if (!sec || !list) return;
+  const norm = (h) => (h || "").replace(/^(\.\.?\/)+/, "");
+  const groups = new Map(sec.order.map((t) => [t, []]));
+  list.querySelectorAll(":scope > li").forEach((li) => {
+    const a = li.querySelector("a.sidebar-link");
+    const t = a && sec.pages[norm(a.getAttribute("href"))];
+    if (t && groups.has(t)) groups.get(t).push(li);
+  });
+  let n = 0;
+  groups.forEach((items, t) => {
+    if (!items.length) return;
+    const id = "exploration-section-" + n++;
+    const open = items.some((li) => li.querySelector("a.active")) || !list.querySelector("a.active");
+    const li = document.createElement("li");
+    li.className = "sidebar-item sidebar-item-section sidebar-subsection";
+    const toggle = (cls, inner, label) =>
+      `<a class="${cls} text-start${open ? "" : " collapsed"}" data-bs-toggle="collapse" data-bs-target="#${id}" ` +
+      `role="navigation" aria-expanded="${open}"${label ? ' aria-label="Toggle section"' : ""}>${inner}</a>`;
+    li.innerHTML = `<div class="sidebar-item-container">` +
+      toggle("sidebar-item-text sidebar-link", `<span class="menu-text"></span>`) +
+      toggle("sidebar-item-toggle", `<i class="bi bi-chevron-right ms-2"></i>`, true) + `</div>` +
+      `<ul id="${id}" class="collapse list-unstyled sidebar-section depth2${open ? " show" : ""}"></ul>`;
+    li.querySelector(".menu-text").textContent = t;
+    items[0].before(li);
+    items.forEach((it) => li.querySelector("ul").appendChild(it));
+  });
 })();
 </script>

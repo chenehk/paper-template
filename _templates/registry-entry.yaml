@@ -1,8 +1,12 @@
 # Copy into explorations/registry.yaml under `explorations:` (tools/new_exploration.py does this).
+# Sections are listed once at the top of the registry:
+#   sections:
+#     - {id: section-id, title: Section title}
 - id: exp-NNN-short-name          # also the folder name and the section id (sec-exp-NNN-short-name)
   title: Short title
   question: One sentence.
   status: planned                 # planned | running | done | failed | obsolete
+  section: section-id             # one of the ids in the registry's top-level `sections` list
   code: {repo: /path/to/code, branch: branch-name, commit: null}
   claims: []                      # claim ids this exploration supports
   jobs:

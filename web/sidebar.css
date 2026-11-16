@@ -26,3 +26,11 @@
   margin-top: 0.6rem;
   padding-top: 0.6rem;
 }
+/* Section headers inside the Explorations part (built by web/part-links.html). */
+.sidebar-navigation .sidebar-section .sidebar-subsection > .sidebar-item-container .menu-text {
+  color: var(--sidebar-part);
+  font-weight: 500;
+}
+.sidebar-navigation .sidebar-subsection > ul {
+  padding-left: 0.75rem;
+}
